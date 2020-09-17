@@ -18,13 +18,13 @@ function initialize() {
             getCurrent("New york");
         }
         else {
-            navigator.geolocation.getCurrentPosition(success, error);
+            navigator.geolocation.getCurrentPosition(geolocation, error);
         }
     }
 
 }
 
-function success(position) {
+function geolocation(position) {
     var lat = position.coords.latitude;
     var lon = position.coords.longitude;
     var queryURL = "https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&APPID=846c51800489cd6a062d23f85a4d24c8";
