@@ -12,3 +12,4 @@ This weather app displays:
 **********************************************
 - I used api keys from Openweathermap.org
 - Putting into a AJAX calling.
+live server link: file:///Users/allisonlewis/development/Homework/weather-dashboard/index.html#
