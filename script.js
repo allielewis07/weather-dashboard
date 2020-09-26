@@ -100,8 +100,9 @@ function getCurrent(city) {
         //display last updated
         var currentDate = moment(response.dt, "X").format("dddd, MMMM Do YYYY, h:mm a");
         cardBody.append($("<p>").attr("class", "card-text").append($("<small>").attr("class", "text-muted").text("Last updated: " + currentDate)));
+        var tempF = (response.main.temp - 273.15) * 1.80 + 32;
         //display Temperature
-        cardBody.append($("<p>").attr("class", "card-text").html("Temperature: " + response.main.temp + " &#8457;"));
+        cardBody.append($("<p>").attr("class", "card-text").html("Temperature: " + tempF.toFixed(2) + " &#8457;"));
         //display Humidity
         cardBody.append($("<p>").attr("class", "card-text").text("Humidity: " + response.main.humidity + "%"));
         //display Wind Speed
@@ -166,8 +167,8 @@ function getForecast(city) {
 
                 var bodyDiv = $("<div>").attr("class", "card-body");
                 addCard.append(bodyDiv);
-
-                bodyDiv.append($("<p>").attr("class", "card-text").html("Temp: " + response.list[i].main.temp + " &#8457;"));
+                var tempFive = (response.list[i].main.temp - 273.15) * 1.80 + 32;
+                bodyDiv.append($("<p>").attr("class", "card-text").html("Temp: " + tempFive.toFixed(2) + " &#8457;"));
                 bodyDiv.append($("<p>").attr("class", "card-text").text("Humidity: " + response.list[i].main.humidity + "%"));
             }
         }
